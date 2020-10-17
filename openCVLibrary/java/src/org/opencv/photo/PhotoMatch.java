@@ -123,9 +123,9 @@ public class PhotoMatch {
         Core.MinMaxLocResult mmr;
         //查找匹配的结果
         mmr = Core.minMaxLoc(result);
+        Log.e(TAG, "匹配的值：" + mmr.maxVal + "   ------坐标：" + mmr.maxLoc.x + "," + mmr.maxLoc.y);
         if (mmr.maxVal > confidence) {
             rect=new android.graphics.Rect((int) mmr.maxLoc.x, (int) mmr.maxLoc.y, (int) mmr.maxLoc.x + templatW, (int) mmr.maxLoc.y + templatH);
-            Log.e(TAG, "匹配的值：" + mmr.maxVal + "   ------坐标：" + mmr.maxLoc.x + "," + mmr.maxLoc.y);
         }
         Log.i(TAG, "spend time " + (SystemClock.uptimeMillis() - startTime));
         return rect;
